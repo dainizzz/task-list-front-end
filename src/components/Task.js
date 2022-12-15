@@ -13,8 +13,9 @@ const Task = ({ id, title, isComplete }) => {
     <li className="tasks__item">
       <button
         className={`tasks__item__toggle ${buttonClass}`}
-        // add button using Props for is.Complete (<button onClick={isComplete}> Complete Task)
+        // add button using Props for is.Complete (<button onClick={isComplete}> Complete Task) (Toggle Complete Part 3)
         onClick={() => setComplete(!complete)}
+        // add button using Props for onUnregister
       >
         {title}
       </button>
@@ -28,6 +29,7 @@ Task.propTypes = {
   title: PropTypes.string.isRequired,
   isComplete: PropTypes.bool.isRequired,
   // add isComplete prop thing
+  // Add onUnregister prop type
 };
 
 export default Task;

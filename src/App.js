@@ -16,6 +16,13 @@ const TASKS = [
 ];
 
 const App = () => {
+  /* Function to Update Task isComplete Goes Here (Toggle Complete Part 1)
+      useState
+      mapping to update the task data
+      use id to select the correct task to update*/
+
+  // Function to unregister task using filter
+
   return (
     <div className="App">
       <header className="App-header">
