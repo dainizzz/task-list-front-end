@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from'react';
 // learn lesson says that this isn't needed anymore but doesn't work without
 
 import PropTypes from 'prop-types';
@@ -33,13 +33,13 @@ const Task = (tasks) => {
 
   // added line 18 into Task (was previously outside)
   return (
-    <li className="tasks__item">
-
-
-      <button className={`tasks__item__toggle ${buttonClass}`} 
-      onClick={onUpdateTaskButtonClick}>{tasks.title}</button>
-      <button className="tasks__item__remove button">x</button>
+    <div>
+      <li className="tasks__item">
+        <button className={`tasks__item__toggle ${buttonClass}`} 
+          onClick={onUpdateTaskButtonClick}>{tasks.title}</button>
+        <button className="tasks__item__remove button">x</button>
     </li>
+    </div>
   );
 };
 
