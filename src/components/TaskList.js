@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import Task from './Task';
 import './TaskList.css';
 
-const TaskList = ({tasks, onUpdateTask}) => {
+// Passing down event handlers:
+  //  update proptypes - expects a prop names onUpdateTask -DONE
+  // send onUpdateTask function from Tasklist to Task
+
+
+const TaskList = ({tasks}) => {
   const getTaskListJSX = (tasks) => {
-    /* Update the map function to modify props.tasks (Toggle Complete Part 2)*/
     return tasks.map((task) => {
       return (
         <Task
@@ -13,7 +17,9 @@ const TaskList = ({tasks, onUpdateTask}) => {
           id={task.id}
           title={task.title}
           isComplete={task.isComplete}
-          onUpdate={onUpdateTask}
+          // it is tasks.onUpdateTask because the value of onUpdate will be what was
+          // passed to tasks.onUpdateStudent (tasks being the arbitrary name for props)
+          onUpdate={tasks.onUpdateTask}
         />
       );
     });

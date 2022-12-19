@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import TaskList from './components/TaskList.js';
+
+
+// PASSING DOWN EVENT HANDLERS
+  // create function to update taskData - DONE
+  // send this function to TaskList -
+
+
+
 import './App.css';
 
 const TASKS = [
@@ -18,20 +26,11 @@ const TASKS = [
 const App = () => {
 
   const [taskData, setTaskData] = useState(TASKS);
-  /* Function to Update Task isComplete Goes Here (Toggle Complete Part 1)
-      useState
-      mapping to update the task data
-      use id to select the correct task to update*/ 
-      // pass prop
 
-  // const [complete, setComplete] = useState(isComplete);
-  // const buttonClass = complete ? 'tasks__item__toggle--completed' : '';
-
-
-  const updateTaskData = updatedTask => {
-    const tasks = taskData.map(task => {
+  const updateTaskData = (updatedTask) => {
+    const tasks = taskData.map((task) => {
       if (task.id === updatedTask.id) {
-        return { ...task, isComplete: !task.isComplete };
+        return updatedTask;
       } else {
         return task;
       }
@@ -40,11 +39,6 @@ const App = () => {
   };
 
 
-
-
-
-
-  // Function to unregister task using filter
 
   return (
     <div className="App">
