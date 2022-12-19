@@ -8,7 +8,8 @@ import './TaskList.css';
   // send onUpdateTask function from Tasklist to Task
 
 
-const TaskList = ({tasks}) => {
+const TaskList = ({tasks, onUpdateTask}) => {
+  // console.log({tasks})
   const getTaskListJSX = (tasks) => {
     return tasks.map((task) => {
       return (
@@ -18,8 +19,8 @@ const TaskList = ({tasks}) => {
           title={task.title}
           isComplete={task.isComplete}
           // it is tasks.onUpdateTask because the value of onUpdate will be what was
-          // passed to tasks.onUpdateStudent (tasks being the arbitrary name for props)
-          onUpdate={tasks.onUpdateTask}
+          // passed to tasks.onUpdateTask (tasks being the arbitrary name for props)
+          onUpdate={onUpdateTask}
         />
       );
     });
