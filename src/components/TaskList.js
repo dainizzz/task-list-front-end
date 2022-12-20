@@ -8,7 +8,7 @@ import './TaskList.css';
   // send onUpdateTask function from Tasklist to Task
 
 
-const TaskList = ({tasks, onUpdateTask}) => {
+const TaskList = ({tasks, onUpdateTask, onDeleteCallback}) => {
   // console.log({tasks})
   const getTaskListJSX = (tasks) => {
     return tasks.map((task) => {
@@ -18,9 +18,8 @@ const TaskList = ({tasks, onUpdateTask}) => {
           id={task.id}
           title={task.title}
           isComplete={task.isComplete}
-          // it is tasks.onUpdateTask because the value of onUpdate will be what was
-          // passed to tasks.onUpdateTask (tasks being the arbitrary name for props)
           onUpdate={onUpdateTask}
+          onDeleteCallback={onDeleteCallback}
         />
       );
     });
@@ -36,6 +35,8 @@ TaskList.propTypes = {
       isComplete: PropTypes.bool.isRequired,
     })).isRequired,
     onUpdateTask: PropTypes.func.isRequired,
+    onDeleteCallback: PropTypes.func.isRequired,
+
 };
 
 export default TaskList;

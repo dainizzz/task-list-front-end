@@ -38,6 +38,13 @@ const App = () => {
     setTaskData(tasks);
   };
 
+  const deleteTask = id => {
+
+    const newTasks = taskData.filter(task => task.id !== id);
+
+    setTaskData(newTasks);
+  };
+
 
 
   return (
@@ -46,7 +53,7 @@ const App = () => {
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div>{<TaskList tasks={taskData} onUpdateTask={updateTaskData} />}</div>
+        <div>{<TaskList tasks={taskData} onUpdateTask={updateTaskData}  onDeleteCallback={deleteTask} />}</div>
 
       </main>
     </div>
