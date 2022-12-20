@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import './Task.css';
 
 // Directions for creating the single source of truth (aka keeping data in one place )
-  // isComplete needs to be in App.js - (was already done in original repo)
-  // update propTypes in TaskList & Task - (was already done in original repo)
-  // Ensure TaskList Passes the New App Data (aka isComplete) - (already done in original repo)
-  // Use isComplete as a prop in Student
-
+// isComplete needs to be in App.js - (was already done in original repo)
+// update propTypes in TaskList & Task - (was already done in original repo)
+// Ensure TaskList Passes the New App Data (aka isComplete) - (already done in original repo)
+// Use isComplete as a prop in Student
 
 // const Task = ({
 //   id,
@@ -15,7 +14,7 @@ import './Task.css';
 //   isComplete,
 //   onUpdate,
 //   onDeleteCallback,
-// }) => 
+// }) =>
 
 const Task = (tasks) => {
   const onUpdateTaskButtonClick = () => {
@@ -23,16 +22,14 @@ const Task = (tasks) => {
       id: tasks.id,
       title: tasks.title,
       isComplete: !tasks.isComplete,
-      onDeleteCallback: tasks.onDelete
-
+      onDeleteCallback: tasks.onDelete,
     };
 
     tasks.onUpdate(updatedTask);
   };
 
-  // changed line 32 to have Task.isComplete - finally seeing the site
-  const buttonClass = Task.isComplete ? 'tasks__item__toggle--completed' : '';
-
+  // updated Task.isComplete to tasks.isComplete to access the value needed
+  const buttonClass = tasks.isComplete ? 'tasks__item__toggle--completed' : '';
 
   const handleRemoveClicked = () => {
     tasks.onDeleteCallback(tasks.id);
@@ -42,11 +39,19 @@ const Task = (tasks) => {
   return (
     <div>
       <li className="tasks__item">
-        <button className={`tasks__item__toggle ${buttonClass}`} 
-        onClick={() => onUpdateTaskButtonClick(tasks.id)}>{tasks.title}</button>
-        <button className="tasks__item__remove button"
-        onClick={handleRemoveClicked}>x</button>
-    </li>
+        <button
+          className={buttonClass}
+          onClick={() => onUpdateTaskButtonClick(tasks.id)}
+        >
+          {tasks.title}
+        </button>
+        <button
+          className="tasks__item__remove button"
+          onClick={handleRemoveClicked}
+        >
+          x
+        </button>
+      </li>
     </div>
   );
 };
