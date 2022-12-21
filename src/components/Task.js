@@ -2,20 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Task.css';
 
-// Directions for creating the single source of truth (aka keeping data in one place )
-// isComplete needs to be in App.js - (was already done in original repo)
-// update propTypes in TaskList & Task - (was already done in original repo)
-// Ensure TaskList Passes the New App Data (aka isComplete) - (already done in original repo)
-// Use isComplete as a prop in Student
-
-// const Task = ({
-//   id,
-//   title,
-//   isComplete,
-//   onUpdate,
-//   onDeleteCallback,
-// }) =>
-
 const Task = (tasks) => {
   const onUpdateTaskButtonClick = () => {
     const updatedTask = {
@@ -35,7 +21,6 @@ const Task = (tasks) => {
     tasks.onDeleteCallback(tasks.id);
   };
 
-  // added line 18 into Task (was previously outside)
   return (
     <div>
       <li className="tasks__item">

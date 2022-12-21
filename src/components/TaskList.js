@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import Task from './Task';
 import './TaskList.css';
 
-// Passing down event handlers:
-  //  update proptypes - expects a prop names onUpdateTask -DONE
-  // send onUpdateTask function from Tasklist to Task
-
-
-const TaskList = ({tasks, onUpdateTask, onDeleteCallback}) => {
-  // console.log({tasks})
+const TaskList = ({ tasks, onUpdateTask, onDeleteCallback }) => {
   const getTaskListJSX = (tasks) => {
     return tasks.map((task) => {
       return (
@@ -33,10 +27,10 @@ TaskList.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       isComplete: PropTypes.bool.isRequired,
-    })).isRequired,
-    onUpdateTask: PropTypes.func.isRequired,
-    onDeleteCallback: PropTypes.func.isRequired,
-
+    })
+  ).isRequired,
+  onUpdateTask: PropTypes.func.isRequired,
+  onDeleteCallback: PropTypes.func.isRequired,
 };
 
 export default TaskList;

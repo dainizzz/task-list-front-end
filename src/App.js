@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import TaskList from './components/TaskList.js';
 
-
-// PASSING DOWN EVENT HANDLERS
-  // create function to update taskData - DONE
-  // send this function to TaskList -
-
-
-
 import './App.css';
 
 const TASKS = [
@@ -24,7 +17,6 @@ const TASKS = [
 ];
 
 const App = () => {
-
   const [taskData, setTaskData] = useState(TASKS);
 
   const updateTaskData = (updatedTask) => {
@@ -38,14 +30,10 @@ const App = () => {
     setTaskData(tasks);
   };
 
-  const deleteTask = id => {
-
-    const newTasks = taskData.filter(task => task.id !== id);
-
+  const deleteTask = (id) => {
+    const newTasks = taskData.filter((task) => task.id !== id);
     setTaskData(newTasks);
   };
-
-
 
   return (
     <div className="App">
@@ -53,8 +41,15 @@ const App = () => {
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div>{<TaskList tasks={taskData} onUpdateTask={updateTaskData}  onDeleteCallback={deleteTask} />}</div>
-
+        <div>
+          {
+            <TaskList
+              tasks={taskData}
+              onUpdateTask={updateTaskData}
+              onDeleteCallback={deleteTask}
+            />
+          }
+        </div>
       </main>
     </div>
   );
